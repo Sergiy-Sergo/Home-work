@@ -53,6 +53,149 @@
          calcResult.value = firstNumber / secondNumber
       }
       // ---------------------------------------------------------
+            // Задача 5. Знайти середню оцінку учня. Кількість та оцінки вводяться користувачем (використати таблицю з компонентами input).
+      function createTable() {
+         const subjectNum1 = parseInt(document.getElementById('subjectNum').value)
+         const table = document.getElementById('createTable')
+         for (let i = 0; i < subjectNum1; i++) {
+            const tr = document.createElement('tr')  
+            const td = document.createElement('td')       
+            td.innerText = `${i + 1} предмет`
+            const td2 = document.createElement('td')       
+            let input = document.createElement('input')
+            input.type = 'number'
+            td2.appendChild(input)
+            tr.appendChild(td2)
+            tr.appendChild(td)
+            table.appendChild(tr)
+         }
+      }
+      function getAverage() {
+         const table = document.getElementById('createTable')
+         const input1 = (document.getElementsByTagName('input'))
+         console.log(input1);
+         let sum = 0
+      for (const item of input1) {
+         sum += parseInt(item.value)
+      }
+         let averageScore = sum / input1.length
+         document.getElementById('result_1').innerText = averageScore
+      }
+      // ---------------------------------------------------------
+      // Задача 6. Сформувати список працівників (ПІБ, посада, заробітна плата). По одному додається інформація про працівників у вигляді таблиці (як у попередньому завданні). Потім знайти сумарну заробітну плату працівників, у яких заробітна плата більша за 3000.
+      function createTableOfWorkers() {
+         const tableOfWorkers = document.getElementById('tableOfWorkers')
+         const tr = document.createElement('tr')
+         const td1 = document.createElement('td')
+         td1.innerText = 'ПІБ'
+         let inp1 = document.createElement('input')
+         inp1.type = 'text'
+         
+         const td2 = document.createElement('td')
+         td2.innerText = 'Посада'
+         let inp2 = document.createElement('input')
+         inp2.type = 'text'
+         
+         const td3 = document.createElement('td')
+         td3.innerText = 'Заробітна плата'
+         let inp3 = document.createElement('input')
+         inp3.type = 'number'
+         
+         td1.appendChild(inp1)
+         td2.appendChild(inp2)
+         td3.appendChild(inp3)
+         tr.appendChild(td1)
+         tr.appendChild(td2)
+         tr.appendChild(td3)
+         tableOfWorkers.appendChild(tr)
+      }
+      function getSalary() {
+         const inp = document.getElementsByTagName('input')
+         for (let i = 2; i < inp.length; i+=3) {
+            if (parseInt(inp[i].value) >= 3000) {
+               const tableUp3000 = document.getElementById('tableUp3000')
+               const tr = document.createElement('tr')
+               const td = document.createElement('td')
+               td.innerText = inp[i-2].value
+               const td2 = document.createElement('td')
+               td2.innerText = inp[i].value
+               tr.appendChild(td)
+               tr.appendChild(td2)
+               tableUp3000.appendChild(tr)
+            }
+         }
+      }
+       // ---------------------------------------------------------
+      // Задача 7. Знайти сумарну виручку від діяльності магазину протягом вказаної кількості тижнів (кожного тижня працює 5 днів).
+      function createTableForTotalSum() {
+         const tableRows = document.getElementById('tableRows').value
+         const tableForTotalSum = document.getElementById('tableForTotalSum')
+         for (let i = 0; i < tableRows; i++) {
+            const tr = document.createElement('tr')
+            const td = document.createElement('td')
+            td.innerText = '1 день'
+            let inp = document.createElement('input')
+            inp.type = 'number'
+            const td2 = document.createElement('td')
+            td2.innerText = '2 день'
+            let inp2 = document.createElement('input')
+            inp2.type = 'number'
+            const td3 = document.createElement('td')
+            td3.innerText = '3 день'
+            let inp3 = document.createElement('input')
+            inp3.type = 'number'
+            const td4 = document.createElement('td')
+            td4.innerText = '4 день'
+            let inp4 = document.createElement('input')
+            inp4.type = 'number'
+            const td5 = document.createElement('td')
+            td5.innerText = '5 день'
+            let inp5 = document.createElement('input')
+            inp5.type = 'number'
+            td.appendChild(inp)
+            td2.appendChild(inp2)
+            td3.appendChild(inp3)
+            td4.appendChild(inp4)
+            td5.appendChild(inp5)
+            tr.appendChild(td)
+            tr.appendChild(td2)
+            tr.appendChild(td3)
+            tr.appendChild(td4)
+            tr.appendChild(td5)
+            tableForTotalSum.appendChild(tr)
+         }
+      }
+      function getMarketTotalSum() {
+         const allInputs = document.getElementsByTagName('input')
+         console.log(allInputs);
+         let marketTotalSum = document.getElementById('marketTotalSum')
+         let sum = 0
+         for (const item of allInputs) {
+            sum += parseInt(item.value)
+         }
+         res = sum - allInputs[0].value
+         marketTotalSum.innerText = `Загальна виручка: ${res}`
+      }
+            // ---------------------------------------------------------
+      // Задача 8. Визначення вартості квитків (кількість – число, тип квитка – купе, загальний, плацкарт). На сторінці розмістити відповідні елементи для вводу потрібної інформації
+      function ticketTotalPrice() {
+         const ticketCount = document.getElementById('ticketCount').value
+         const ticketType = (document.getElementById('ticketType').value)
+         let ticketPrice = document.getElementById('ticketPrice')
+         if (!ticketType) {
+            ticketPrice.innerText = 'Введіть правильні значення!(Тип вводимо повністю, маленькими літерами)'
+         } else {
+            if (ticketType === 'купе') {
+               ticketPrice.innerText = ticketCount * 150
+            }
+            if (ticketType === 'загальний') {
+               ticketPrice.innerText = ticketCount * 50
+            } 
+            if (ticketType === 'плацкарт') {
+               ticketPrice.innerText = ticketCount * 100
+            } 
+         }
+      }
    </script>
 </head>
 <body>
@@ -95,5 +238,76 @@
       <hr/>
       Результат <input type="text" id="calcResult" placeholder="0">
    </div>
+      <!-- ------------------------------------------------------- -->
+  <p> Задача 5. Знайти середню оцінку учня. Кількість та оцінки вводяться користувачем (використати таблицю з компонентами input).</p>
+   <div>
+      <label>
+         Кількість предметів
+         <input type="number" name="" id="subjectNum">
+      </label>
+      <button onclick="createTable()">
+         Create
+      </button>
+      <br/>
+      <div>
+         <table id="createTable" style="border: solid  black 1px;">
+            
+         </table>
+      </div>
+      <br/>
+      <button id="getAverage" onclick="getAverage()">
+         Знайти
+      </button>
+      Середній бал: <span id="result_1"></span>
+   </div>
+   <!-- ------------------------------------------------------- -->
+   <p>Задача 6. Сформувати список працівників (ПІБ, посада, заробітна плата). По одному додається інформація про працівників у вигляді таблиці (як у попередньому завданні). Потім знайти сумарну заробітну плату працівників, у яких заробітна плата більша за 3000.</p>
+   <div>
+      <table id="tableOfWorkers" style="border: solid black 1px;">
+
+      </table>
+      <button onclick="createTableOfWorkers()">
+      Додати працівника
+      </button>
+      <br/>
+      <button onclick="getSalary()">Вивести тих, в яких зп >= 3000</button>
+      <table id="tableUp3000" style="border: solid black 1px;"> 
+
+      </table>
+   </div>
+    <!-- ------------------------------------------------------- -->
+   <p>Задача 7. Знайти сумарну виручку від діяльності магазину протягом вказаної кількості тижнів (кожного тижня працює 5 днів).</p>
+   <div>
+      Скільки тижнів: <input type="number" id="tableRows">
+      <button onclick="createTableForTotalSum()">
+         Ввести
+      </button>
+      <table id="tableForTotalSum">
+
+      </table>
+      <button onclick="getMarketTotalSum()">
+         Обчислити сумарну виручку
+      </button>
+      <br/>
+      <span id="marketTotalSum"></span>
+   </div>
+      <!-- ------------------------------------------------------- -->
+   <p>Задача 8. Визначення вартості квитків (кількість – число, тип квитка – купе, загальний, плацкарт). На сторінці розмістити відповідні елементи для вводу потрібної інформації</p>
+   <div>
+      Купе = 150
+      Загальний  = 50
+      Плацкарт = 100
+   </div>
+   <div>
+      Кількість:
+      <input type="number" id="ticketCount">
+      Тип квитка: 
+      <input type="text" id="ticketType">
+   </div>
+   <button onclick="ticketTotalPrice()">
+      Розрахувати вартість
+   </button>
+   <br/>
+   <span id="ticketPrice"></span>
 </body>
 </html>
