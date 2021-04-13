@@ -53,6 +53,17 @@
          calcResult.value = firstNumber / secondNumber
       }
       // ---------------------------------------------------------
+      // Задача 4. Дано списки продуктів. Знайти сумарну вартість
+      function getTotalSum() {
+         const productsPrice = document.getElementsByTagName('td')
+      
+         let sum = 0
+         for (let i = 1; i < productsPrice.length; i+=2) {
+             sum += parseFloat(productsPrice[i].innerText)          
+         }
+         document.querySelector('#totalSum').value = sum
+      }
+      // ---------------------------------------------------------
             // Задача 5. Знайти середню оцінку учня. Кількість та оцінки вводяться користувачем (використати таблицю з компонентами input).
       function createTable() {
          const subjectNum1 = parseInt(document.getElementById('subjectNum').value)
@@ -237,6 +248,37 @@
       <button onclick="getDivision()">Поділити</button>
       <hr/>
       Результат <input type="text" id="calcResult" placeholder="0">
+   </div>
+   <!-- ------------------------------------------------------- -->
+   <p>Задача 4. Дано списки продуктів. Знайти сумарну вартість</p>
+   <div>
+      <table style="border: 2px solid black;">
+         <tr>
+            <td>Картопля</td>
+            <td>10</td>
+         </tr>
+         <tr>
+            <td>Капуста</td>
+            <td>8</td>
+         </tr>
+         <tr>
+            <td>Гречка</td>
+            <td>30</td>
+         </tr>
+         <tr>
+            <td>Рис</td>
+            <td>30</td>
+         </tr>
+         <tr>
+            <td>Сир</td>
+            <td>60</td>
+         </tr>
+      </table>
+      <label>
+         Загальна вартість <input type="text" id="totalSum">
+      </label>
+      <br/>
+      <button onclick="getTotalSum()">Get</button>
    </div>
       <!-- ------------------------------------------------------- -->
   <p> Задача 5. Знайти середню оцінку учня. Кількість та оцінки вводяться користувачем (використати таблицю з компонентами input).</p>
