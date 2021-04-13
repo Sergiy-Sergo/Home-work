@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // ---------------------------------------------------------
+      //  Задача. Відобразити одновимірний масив за допомогою таблиці
+       let arr = [111,21,54,34]
+       function showTable() {
+          const myTable = document.querySelector('#myTable')
+          const tr = document.createElement('tr')
+          for (let i = 0; i < arr.length; i++) {
+            const td = document.createElement('td')
+            td.innerText = arr[i]  
+            tr.appendChild(td)           
+          }
+          myTable.appendChild(tr)
+       }
+      // ---------------------------------------------------------
+      // Задача. Зробити кнопку, при натисненні на яку з’являється додатковий input
+       function getNewInput() {
+          const container = document.querySelector('.container')
+          const input = document.createElement('input')
+          input.type = 'text'
+          input.value = '0'
+          container.appendChild(input)
+          const br = document.createElement('br')
+          container.appendChild(br)
+       }
+      // ---------------------------------------------------------
+      function getSum() {
+         const firstValue = document.querySelector('#firstValue')
+         const firstValue1 = parseFloat(firstValue.value)
+         firstValue.value =''
+
+         const secondValue = document.querySelector('#secondValue')
+         const secondValue1 = parseFloat(secondValue.value)
+         secondValue.value = ''
+         
+         document.querySelector('#result').value = firstValue1 + secondValue1
+      }
+      function getSubtract() {
+         const firstValue = document.querySelector('#firstValue')
+         const firstValue1 = parseFloat(firstValue.value)
+         firstValue.value =''
+
+         const secondValue = document.querySelector('#secondValue')
+         const secondValue1 = parseFloat(secondValue.value)
+         secondValue.value = ''
+         
+         document.querySelector('#result').value = firstValue1 - secondValue1
+      }
+      function getMultiply() {
+         const firstValue = document.querySelector('#firstValue')
+         const firstValue1 = parseFloat(firstValue.value)
+         firstValue.value =''
+
+         const secondValue = document.querySelector('#secondValue')
+         const secondValue1 = parseFloat(secondValue.value)
+         secondValue.value = ''
+         
+         document.querySelector('#result').value = firstValue1 * secondValue1
+      }
+      function getDivide() {
+         const firstValue = document.querySelector('#firstValue')
+         const firstValue1 = parseFloat(firstValue.value)
+         firstValue.value =''
+
+         const secondValue = document.querySelector('#secondValue')
+         const secondValue1 = parseFloat(secondValue.value)
+         secondValue.value = ''
+         
+         document.querySelector('#result').value = firstValue1 / secondValue1
+      }
+   </script>
+  </head>
+  <body>
+   <!-- --------------------------------------------------------- -->
+    <p>Задача. Відобразити одновимірний масив за допомогою таблиці</p>
+    <button onclick="showTable()">Click</button>
+    <div id="myDiv">
+      <table id="myTable"></table>
+    </div>
+   <!-- --------------------------------------------------------- -->
+    <p>Задача. Зробити кнопку, при натисненні на яку з’являється додатковий input</p>
+
+    <div>
+       <button onclick="getNewInput()">Click</button>
+       <div class="container">
+
+       </div>
+    </div>
+   <!-- --------------------------------------------------------- -->
+    <p>Задача. Розробити калькуляртор</p>
+    <div>
+       <label>
+          First number
+          <input type="text" id="firstValue" placeholder="0" >
+       </label>
+       <br/>
+       <label>
+         Second number
+         <input type="text" id="secondValue" placeholder="0" >
+      </label>
+      <br/>
+      <button onclick="getSum()">Додати</button>
+      <button onclick="getSubtract()">Відняти</button>
+      <button onclick="getMultiply()">Помножити</button>
+      <button onclick="getDivide()">Поділити</button>
+    </div>
+    <hr/>
+    <label>
+      Результат
+      <input type="text" id="result" placeholder="0" value="0">
+    </label>
+   </body>
+</html>
