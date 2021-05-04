@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+
+// Задача. Створити об’єкт «Авто». 
+
+    let auto = {
+      mark: 'Audi',
+      fuelVolume: 70,
+      fuelInCar: 40,
+      countOfPlaces: 5,
+      passengerCount: 3,
+      getFuel(litres){
+       return this.fuelInCar += litres
+      },
+      getPassengersCount(){
+        return this.passengerCount
+      },
+      invitePassengers(newPassenger){
+        return this.passengerCount += newPassenger
+      },
+      deletePassengers(deletePassenger){
+        return this.passengerCount -= deletePassenger
+      }
+    }
+console.log(auto.getFuel(7));
+console.log(auto.getPassengersCount());
+console.log(auto.invitePassengers(2));
+console.log(auto.deletePassengers(4));
+//---------------------------------------------------------
+
+// Задача. Створити об’єкт «Рулетка»
+let roulette = {
+    num: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36],
+    getRandomNum() {
+      return (this.num[0] + Math.floor(Math.random() * this.num.length - this.num[0] + 1))
+    },
+    gameDrum(){
+       let container1 = document.querySelector('#container')
+       let table = document.createElement('table')
+       table.style.border='1px black solid'
+       table.style.textAlign='center'
+       let tr = document.createElement('tr')
+       let tr2 = document.createElement('tr')
+       let tr3 = document.createElement('tr')
+       let tr4 = document.createElement('tr')
+
+       let td1 = document.createElement('td')
+       let td2 = document.createElement('td')
+       let td3 = document.createElement('td')
+       let td4 = document.createElement('td')
+
+       tr.appendChild(td1)
+       tr2.appendChild(td2)
+       tr3.appendChild(td3)
+       tr4.appendChild(td4)
+
+      
+       table.appendChild(tr)
+       table.appendChild(tr2)
+       table.appendChild(tr3)
+       table.appendChild(tr4)
+
+       container.appendChild(table)
+    
+      for (let i = 0; i < this.num.length/4; i++) {
+         td1.innerHTML += this.num[i]         
+      } 
+      for (let i = 10; i < this.num.length/2; i++) {
+         td2.innerHTML += this.num[i]         
+      }     
+      
+       for (let i = 19; i <= 27; i++) {
+          td3.innerHTML += this.num[i]         
+       }
+      
+       for (let i = 28; i < this.num.length; i++) {
+          td4.innerHTML += this.num[i]         
+       }
+    }
+  }
+
+window.onload = function (){
+console.log(roulette.getRandomNum());
+roulette.gameDrum();
+}
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+
+  </body>
+</html>
