@@ -15,10 +15,9 @@
   </style>
   <script>
     class SnowFlake{
-      constructor(image, startPosition){
+      constructor(image){
         this.image = image
         this.position = 0
-        this.startPosition = startPosition
       }
       imgMove(){
         this.position = 0
@@ -39,7 +38,7 @@
     }
     window.onload = function(){
       let img = 'https://png.clipart.me/istock/previews/7192/7192158-single-snowflake-vector-design.jpg'
-      const snow = new SnowFlake(img,0)
+      const snow = new SnowFlake(img)
       snow.render('container')
       snow.imgMove()
     }
